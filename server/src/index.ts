@@ -24,7 +24,9 @@ app.use(cors({
 export const stripe = new Stripe(stripe_secret_key)
 
 
-app.use(express.static(path.join('H:\\TS-apps\\Resume-projects\\ecommerce-store-react-v2','/client/dist')))
+app.use(express.static(path.join(__dirname,'../../client/dist')))
+
+console.log(path.join(__dirname,'../../client/dist'))
 
 
 const connect = async () => {
@@ -57,7 +59,7 @@ app.use('/payment',PaymentRouter)
 // })
 
 app.get('/*',(req,res)=>{
-    res.sendFile(path.join('H:\\TS-apps\\Resume-projects\\ecommerce-store-react-v2','/client/dist/index.html'))
+    res.sendFile(path.join(__dirname,'../../client/dist/index.html'))
 })
 
 
