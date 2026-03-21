@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { UserStoreType } from "../types/userTypes";
 import { Responsetype } from "../types/ResponseTypes";
 
-export const endpont = 'http://localhost:4000'
+export const endpont = 'https://shopmart-site.onrender.com'
 
 export const useUserStore = create<UserStoreType>((set, _get) => ({
 

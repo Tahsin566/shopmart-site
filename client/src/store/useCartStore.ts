@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 import { CartProp, CartStoreType } from '../types/cartTypes'
 import { ProductType } from '../types/productTypes'
 
-export const endpont = 'http://localhost:4000'
+export const endpont = 'https://shopmart-site.onrender.com'
 
 
 export const useCartStore = create<CartStoreType>((set, get) => ({
