@@ -6,9 +6,8 @@ import { useEffect } from 'react'
 import { endpont, useUserStore } from '../store/useUserstore'
 import toast from 'react-hot-toast'
 import {loadStripe} from '@stripe/stripe-js'
-import { stripe_public_key } from '../configEnv'
 
-const stripeload = loadStripe(stripe_public_key)
+const stripeload = loadStripe("pk_test_51PgqVWHs23FbpXIBCZDnYijA33RyFGXSscHEcooiW67pAlS4UjyOfkpEA8VPfc1fEkCcY7ws5tmY3Mbs1LDNCSxw00V9wygJAK")
 
 const CartPage = () => {
 

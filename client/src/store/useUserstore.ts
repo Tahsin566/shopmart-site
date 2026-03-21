@@ -108,7 +108,7 @@ export const useUserStore = create<UserStoreType>((set, _get) => ({
         try {
             const response = await fetch(`${endpont}/auth/profile`, { credentials: 'include' })
             const data:Responsetype = await response.json()
-            console.log(data.user)
+            
             if(data.user){
                 set({user:data.user})
             }
