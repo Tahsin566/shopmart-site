@@ -22,7 +22,7 @@ const Navbar = () => {
     <>
       <div className='flex justify-between p-4 text-white flex-wrap items-center border-b border-blue-900 fixed top-0 left-0 w-full bg-gray-950 z-30'>
         <Link to={'/'} className=' text-blue-500 font-bold text-2xl'>
-          Ecommerce
+          Shopmart
         </Link>
         <div className='flex max-[635px]:hidden justify-between gap-4 flex-wrap items-center'>
           <Link to={'/'}>Home</Link>
