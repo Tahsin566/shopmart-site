@@ -14,7 +14,7 @@ const SuccessPage = () => {
   const processPayment = async()=>{
 
     try {
-      const response = await fetch('http://localhost:4000/payment/order',{
+      const response = await fetch('https://shopmart-site.onrender.com/payment/order',{
         method:'POST',
         credentials:'include',
         headers:{
