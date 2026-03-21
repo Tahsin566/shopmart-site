@@ -34,7 +34,7 @@ const CartPage = () => {
     
     try {
       toast.success('Proceding to checkout',{icon:<Info color='white' className=' bg-blue-300 rounded-full' />,style:{fontWeight:'bold'}})
-      const response = await fetch('http://localhost:4000/payment/checkout', {
+      const response = await fetch('https://shopmart-site.onrender.com/payment/checkout', {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
         credentials: 'include',
