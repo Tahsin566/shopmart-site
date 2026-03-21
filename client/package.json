@@ -12,6 +12,7 @@
   "dependencies": {
     "@stripe/stripe-js": "^7.0.0",
     "@tailwindcss/vite": "^4.0.17",
+    "ecommerce-store-react": "file:..",
     "framer-motion": "^12.6.2",
     "lucide-react": "^0.484.0",
     "react": "^19.0.0",
