@@ -1,0 +1,47 @@
+for all cases if the image or any tag is not centering or doing the expected functionality of flexbox or grid,that issue can be due to padding or margin applied.Same applies for expo app development.
+
+
+
+if setting the cookie in the browser does not work then do the following
+
+backend:
+cors({
+    origin:"http://localhost:5173",
+    credentials:true
+})
+
+const token = await jwt.sign({id:user._id,email:user.email},process.env.JWT_SECRET!,{expiresIn:"7d"}) //always include expiresIn field,indicates the availability of token for the time specified in the expiresIn property.
+
+console.log(token)
+
+res.cookie("token",token,{sameSite:"lax",secure:false,maxAge: 7 * 24 * 60 * 60 * 1000}).json({message:'successfully signed in',userinfo:{username:user.username,email:user.email}})
+
+always include this sameSite,secure,maxAge property and set them exactly. You can set sameSite:none and secure:true in production.If maxAge is not set,then cookie is going to disappear from the browser when website is closed.
+
+for frontend:
+
+add credentials:"include" in the fetch applied
+
+const response = await fetch('http://localhost:4000/auth/signin', {
+        method: 'POST',
+        credentials:"include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({email,password})
+})
+
+
+//an important syntax
+
+  if (!products) return
+   const pid = products.find((p:any) => p.id === product.id)?.id
+   setproducts((prev) => (
+   prev.map((product) => {
+      return product.id === pid ? { ...product, isFeatured: !product.isFeatured } : product
+    })
+   ))
+
+
+   always declare .env.local in your client root folder and prefix this with VITE when declaring environment variables.
+
+   use import.meta.env.VITE_xx to access the variable
+
