@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useCartStore } from '../store/useCartStore'
+import { endpont } from '../store/useUserstore'
 
 const SuccessPage = () => {
 
@@ -14,7 +15,7 @@ const SuccessPage = () => {
   const processPayment = async()=>{
 
     try {
-      const response = await fetch('https://shopmart-site.onrender.com/payment/order',{
+      const response = await fetch(`${endpont}/payment/order`,{
         method:'POST',
         credentials:'include',
         headers:{

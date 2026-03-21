@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Cartitem from '../components/Cartitem'
 import { useCartStore } from '../store/useCartStore'
 import { useEffect } from 'react'
-import { useUserStore } from '../store/useUserstore'
+import { endpont, useUserStore } from '../store/useUserstore'
 import toast from 'react-hot-toast'
 import {loadStripe} from '@stripe/stripe-js'
 import { stripe_public_key } from '../configEnv'
@@ -34,7 +34,7 @@ const CartPage = () => {
     
     try {
       toast.success('Proceding to checkout',{icon:<Info color='white' className=' bg-blue-300 rounded-full' />,style:{fontWeight:'bold'}})
-      const response = await fetch('https://shopmart-site.onrender.com/payment/checkout', {
+      const response = await fetch(`${endpont}/payment/checkout`, {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
         credentials: 'include',
