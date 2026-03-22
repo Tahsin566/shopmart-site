@@ -75,20 +75,20 @@ const Navbar = () => {
 
           <div className='flex flex-col justify-start gap-4 p-4 text-white flex-wrap items-center border-b border-blue-900 fixed top-16 min-h-80 w-60 right-0 bg-gray-950 z-30'>
             {/* <div className='flex justify-between gap-4 flex-wrap items-center'> */}
-            <Link to={'/'}><User /></Link>
-            <div className=' flex flex-col'>
+            {user && <Link to={'/'}><User /></Link>}
+            {user && <div className=' flex flex-col'>
             <h1 className=' text-center'>{user?.username}</h1>
             <h1>{user?.email}</h1>
-            </div>
+            </div>}
             <Link className='' onClick={()=>{
               setmenuOpen(false)
             }} to={'/'}>Home</Link>
-            <Link onClick={()=>{
+            {user && <Link onClick={()=>{
               setmenuOpen(false)}} to={'/cart'}  className='flex justify-center items-center gap-2 relative'>
               <ShoppingCart size={18} />
               <div className='w-5 h-5 rounded-full bg-blue-800 absolute -top-2 left-2 flex justify-center items-center text-xs'>{user && !loading && cart?.length}</div>
               Cart
-            </Link>
+            </Link>}
             {user?.role=="admin" && <Link to={'/dashboard'} className='flex justify-center items-center gap-2 bg-blue-800 p-2 rounded-md w-full'>
               <Lock size={18} />
               Dashboard
@@ -107,7 +107,6 @@ const Navbar = () => {
                   <LogIn size={18} />
                   Login
                 </Link>
-
 
               </>
             )}
