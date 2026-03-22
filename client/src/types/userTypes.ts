@@ -1,12 +1,12 @@
 
-export type User = {
+type User = {
         username: string
         email: string,
         role: "customer" | "admin"
 }
 
 
-export type UserStoreType = {
+type UserStoreType = {
     user: User | null,
     loading: boolean,
     checkingauth: boolean,
@@ -16,3 +16,5 @@ export type UserStoreType = {
     checkvalid: (email: string, password: string) => boolean,
     signOut: () => Promise<void>
 }
+
+export { UserStoreType, User }

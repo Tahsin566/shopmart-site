@@ -1,4 +1,4 @@
-import { User } from "./userTypes"
+import {User} from "./userTypes"
 
 export type Responsetype = {
     message:string,
