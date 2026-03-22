@@ -44,8 +44,8 @@ const CartPage = () => {
       console.log(session)
       await (stripe as any).redirectToCheckout({sessionId:session.id})
       
-    } catch (error) {
-        toast.error('an error occurred')
+    } catch (error: any) {
+        toast.error('an error occurred',error.message)
     }
   }
 
