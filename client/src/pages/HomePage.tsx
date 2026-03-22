@@ -16,7 +16,7 @@ const HomePage = () => {
 
           <div className='flex flex-col w-[900px]'>
 
-          <h2 className='text-5xl text-center font-bold text-blue-500'>Explore our categories</h2>
+          <h2 className='text-5xl text-center font-bold'>Explore our categories</h2>
           <p className='text-xl text-center my-2'>Discover the latest trends in eco-friendly fashion</p>
 
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  mt-10 gap-1 p-1 place-items-center'>

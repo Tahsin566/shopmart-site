@@ -21,22 +21,22 @@ const Navbar = () => {
   return (
     <>
       <div className='flex justify-between p-4 text-white flex-wrap items-center border-b border-blue-900 fixed top-0 left-0 w-full bg-gray-950 z-30'>
-        <Link to={'/'} className=' text-blue-500 font-bold text-2xl'>
+        <Link to={'/'} className='font-bold text-2xl'>
           Shopmart
         </Link>
         <div className='flex max-[635px]:hidden justify-between gap-4 flex-wrap items-center'>
           <Link to={'/'}>Home</Link>
-          <Link to={'/cart'} className='flex justify-center items-center gap-2 relative'>
+          {user && <Link to={'/cart'} className='flex justify-center items-center gap-2 relative'>
             <ShoppingCart size={18} />
             <div className='w-5 h-5 rounded-full bg-blue-800 absolute -top-2 left-2 flex justify-center items-center text-xs'>{user && !loading && cart?.length}</div>
             Cart
-          </Link>
-          <Link  onPointerEnter={()=>setprofile(true)} onPointerLeave={()=>setprofile(false)} className=' relative border cursor-pointer rounded-full border-neutral-400' to={'/'}><User />
+          </Link>}
+          {user && <Link  onPointerEnter={()=>setprofile(true)} onPointerLeave={()=>setprofile(false)} className=' relative border cursor-pointer rounded-full border-neutral-400' to={'/'}><User />
           <div  className={`p-1 left-2 top-7 rounded-md bg-gray-800 absolute ${profile ?'visible':'hidden' } `}>
           <h1>{user?.username}</h1>
           <h1>{user?.email}</h1>
           </div>
-          </Link>
+          </Link>}
           {user?.role === "admin" && <Link to={'/dashboard'} className='flex justify-center items-center gap-2 bg-blue-800 p-2 rounded-md'>
             <Lock size={18} />
             Dashboard
