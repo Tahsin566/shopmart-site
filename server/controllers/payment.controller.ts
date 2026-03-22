@@ -9,6 +9,10 @@ export const Checkout = async(req:Request<{},{}>,res:Response)=>{
     try {
         
         const {cart}:{cart:CartType[]} = req.body
+        const {endpoint}:{endpoint:string} = req.body
+
+        
+
         if(cart.length===0){
             res.status(400).json({error:'no item found'})
             return
@@ -36,8 +40,8 @@ export const Checkout = async(req:Request<{},{}>,res:Response)=>{
             payment_method_types:["card"],
             line_items:lineitems,
             mode:'payment',
-            success_url:'http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url:'http://localhost:5173/cancel',
+            success_url:`${endpoint}/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url:`${endpoint}/cancel`,
             metadata:{
                 userId:JSON.stringify(req.user._id),
                 products:JSON.stringify(
@@ -51,7 +55,7 @@ export const Checkout = async(req:Request<{},{}>,res:Response)=>{
             }
         })
 
-        res.status(200).json({id:session.id,total:total/100})
+        res.status(200).json({id:session.id,url:session.url,total:total/100})
     } catch (error) {
         if(error instanceof Error){
             res.status(500).json({error:error.message})

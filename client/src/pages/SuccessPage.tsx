@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useCartStore } from '../store/useCartStore'
-import { endpont } from '../store/useUserstore'
+import { endpont } from '../../../url'
 
 const SuccessPage = () => {
 

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { ProductStoretype, ProductType } from "../types/productTypes";
+import { endpont } from "../../../url";
 
-export const endpont = 'https://shopmart-site.onrender.com'
 
 export const useProductStore = create<ProductStoretype>((set,_get)=>({
     products:[],

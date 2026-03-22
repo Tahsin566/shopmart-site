@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import Cartitem from '../components/Cartitem'
 import { useCartStore } from '../store/useCartStore'
 import { useEffect } from 'react'
-import { endpont, useUserStore } from '../store/useUserstore'
+import { useUserStore } from '../store/useUserstore'
 import toast from 'react-hot-toast'
 import {loadStripe} from '@stripe/stripe-js'
+import { endpont } from '../../../url'
 
 const stripeload = await loadStripe("pk_test_51PgqVWHs23FbpXIBCZDnYijA33RyFGXSscHEcooiW67pAlS4UjyOfkpEA8VPfc1fEkCcY7ws5tmY3Mbs1LDNCSxw00V9wygJAK")
 
@@ -37,15 +38,16 @@ const CartPage = () => {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
         credentials: 'include',
-        body: JSON.stringify({ cart })
+        body: JSON.stringify({ cart,endpoint:`${endpont}` })
       })
       const session = await response.json()
       
       console.log(session)
-      await (stripe as any).redirectToCheckout({sessionId:session.id})
+      window.location.href = session.url
       
     } catch (error: any) {
         toast.error('an error occurred',error.message)
+        console.log(error)
     }
   }
 

@@ -2,8 +2,8 @@ import toast from "react-hot-toast";
 import { create } from "zustand";
 import { UserStoreType } from "../types/userTypes";
 import { Responsetype } from "../types/ResponseTypes";
+import {endpont} from "../../../url";
 
-export const endpont = 'https://shopmart-site.onrender.com'
 
 export const useUserStore = create<UserStoreType>((set, _get) => ({
 
