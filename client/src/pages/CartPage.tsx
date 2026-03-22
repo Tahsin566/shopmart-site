@@ -7,7 +7,7 @@ import { endpont, useUserStore } from '../store/useUserstore'
 import toast from 'react-hot-toast'
 import {loadStripe} from '@stripe/stripe-js'
 
-const stripeload = loadStripe("pk_test_51PgqVWHs23FbpXIBCZDnYijA33RyFGXSscHEcooiW67pAlS4UjyOfkpEA8VPfc1fEkCcY7ws5tmY3Mbs1LDNCSxw00V9wygJAK")
+const stripeload = await loadStripe("pk_test_51PgqVWHs23FbpXIBCZDnYijA33RyFGXSscHEcooiW67pAlS4UjyOfkpEA8VPfc1fEkCcY7ws5tmY3Mbs1LDNCSxw00V9wygJAK")
 
 const CartPage = () => {
 
@@ -42,7 +42,7 @@ const CartPage = () => {
       const session = await response.json()
       
       console.log(session)
-      await stripe.redirectToCheckout({sessionId:session.id})
+      await (stripe as any).redirectToCheckout({sessionId:session.id})
       
     } catch (error) {
         toast.error('an error occurred')
