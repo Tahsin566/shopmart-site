@@ -52,8 +52,7 @@ export const signin = async (req: Request, res: Response) => {
 
             return res.cookie("token", token, { sameSite: "none", secure: true, maxAge: 7 * 24 * 60 * 60 * 1000 }).status(200).json({ message: 'successfully signed in', userinfo: { username: user.username, email: user.email,role:user.role } })
         }
-        return res.status(400).json({ error: 'invalid email or password' })
-
+        
     } catch (error) {
         if (error instanceof Error) {
             res.status(500).json({ error: 'An error occurred' })
