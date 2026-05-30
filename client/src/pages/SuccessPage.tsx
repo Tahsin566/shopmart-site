@@ -41,7 +41,7 @@ const SuccessPage = () => {
 
   return (
     <div className='w-full flex justify-center items-center min-h-[70vh] p-1'>
-        <div className=' bg-gray-800 w-[600px] min-h-[30vh] flex flex-col justify-center items-center gap-5 rounded-md'>
+        <div className=' bg-gray-800 w-150 min-h-[30vh] flex flex-col justify-center items-center gap-5 rounded-md'>
 
             <Check className=' bg-green-600 rounded-full p-1'/>
             <div className='font-bold text-2xl text-center'>Payment successful</div>

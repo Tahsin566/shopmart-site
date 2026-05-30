@@ -19,7 +19,7 @@ const SignupPage = () => {
 		<>
 			<div className='flex justify-center items-center flex-wrap p-2'>
 
-				<div className='w-[400px]'>
+				<div className='w-100'>
 
 					<motion.div
 						className=''

@@ -5,36 +5,33 @@ const OrderScheama = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        required: [true, 'User is required']
     },
     products: [
         {
             product: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Product',
-                required: true
+                required: [true, 'Product is required']
             },
             quantity: {
                 type: Number,
-                required: true,
-                min: 1
+                default: 1
             },
             price: {
                 type: Number,
-                min: 0,
-                required: true
+                default: 0,
             }
 
         }
     ],
     totalAmount: {
         type: Number,
-        min: 0,
-        required: true
+        default: 0,
     },
     stripeSessionId: {
         type:String,
-        unique:true
+        unique:[true,'Stripe session id must be unique']
     }
 
 }, { timestamps: true })

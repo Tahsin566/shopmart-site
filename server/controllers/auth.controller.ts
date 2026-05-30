@@ -3,7 +3,7 @@ import { Response, Request } from "express"
 import mongoose from "mongoose"
 import { User } from "../models/user.model"
 import bcrypt from 'bcrypt'
-import jwt, { Jwt, JwtPayload } from 'jsonwebtoken'
+import jwt, { JwtPayload } from 'jsonwebtoken'
 import { jwt_token_secret } from "../config/configEnv"
 
 

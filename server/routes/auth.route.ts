@@ -5,9 +5,9 @@ import { protectedRoute } from '../middlewares/auth.middleware'
 
 const router = express.Router()
 
-router.post('/signup',signup as RequestHandler)
-router.post('/signin',signin as RequestHandler)
-router.post('/signout',signout as RequestHandler)
+router.post('/signup',signup)
+router.post('/signin',signin)
+router.post('/signout',signout)
 router.get('/profile',protectedRoute,getprofile)
 
 

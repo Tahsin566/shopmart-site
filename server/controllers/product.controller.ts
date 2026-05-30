@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Product } from "../models/product.model";
 
+
 export const getProductsByCategory = async(req:Request,res:Response)=>{
     const {category} = req.params
     try {

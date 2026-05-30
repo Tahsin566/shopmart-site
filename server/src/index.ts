@@ -32,7 +32,7 @@ console.log(path.join(__dirname,'../../client/dist'))
 const connect = async () => {
     try {
         const conn = await mongoose.connect(process.env.MODE === "production" ? mongo_url_dev:mongo_url)
-        console.log('conn',conn.connection.host)
+        
         if (conn) {
             console.log("Connected")
         }
@@ -50,13 +50,7 @@ app.use('/products',ProductRouter)
 app.use('/payment',PaymentRouter)
 
 
-// app.get('/',async(req,res)=>{
 
-//     // const products = new Product({category: "Bags", name: "Tote Bag", price: 3000, image:'https://img.freepik.com/free-photo/roadtrip-concept-with-backpack-flask_23-2149270128.jpg?t=st=1743241785~exp=1743245385~hmac=d2419d29d1825af773dd9f32a45f238fe28db5d96a31a47919176e0d3aeef20c&w=1380',isFeatured: false,description:'This is a bag'})
-//     // await products.save()
-
-//     res.status(200).send('Welcome to our store')
-// })
 
 app.get('/*',(req,res)=>{
     res.sendFile(path.join(__dirname,'../../client/dist/index.html'))

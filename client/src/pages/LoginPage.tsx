@@ -18,7 +18,7 @@ const LoginPage = () => {
     <>
       <div className='flex justify-center items-center flex-wrap p-2'>
 
-        <div className='w-[400px]'>
+        <div className='w-100'>
 
           <motion.div
             className=''
@@ -57,7 +57,7 @@ const LoginPage = () => {
 									
 								</div>
                 <button type='submit' className=' bg-blue-700 flex justify-center items-center p-2 rounded-md my-2 gap-2 cursor-pointer disabled:bg-blue-800' disabled={loading}>
-									<LogIn size={18} className='mt-[2px]'/>
+									<LogIn size={18} className='mt-0.5'/>
 									<h1>Log in</h1>
 								</button>
                 <div className=' flex gap-2 items-center'>

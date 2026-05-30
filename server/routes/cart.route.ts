@@ -5,10 +5,10 @@ import { protectedRoute } from '../middlewares/auth.middleware'
 
 const router = express.Router()
 
-router.post('/',protectedRoute,addToCart as RequestHandler)
-router.get('/cartitem',protectedRoute,getCartItems as RequestHandler)
-router.post('/updatequantity',protectedRoute,decrementQuantity as RequestHandler)
-router.post('/remove',protectedRoute,removeFromCart as RequestHandler)
-router.post('/clear',protectedRoute,clearCart as RequestHandler)
+router.post('/',protectedRoute,addToCart )
+router.get('/cartitem',protectedRoute,getCartItems )
+router.post('/updatequantity',protectedRoute,decrementQuantity )
+router.post('/remove',protectedRoute,removeFromCart )
+router.post('/clear',protectedRoute,clearCart )
 
 export {router as CartRouter}

@@ -21,7 +21,7 @@ const Dashboard = () => {
         <div className='flex justify-center items-center flex-wrap px-2'>
 
 
-            <div className='w-[900px] justify-center'>
+            <div className='w-225 justify-center'>
               <motion.h1
               className='text-3xl font-extrabold text-blue-500 text-center my-6'
               initial={{ opacity: 0, y: -20 }}

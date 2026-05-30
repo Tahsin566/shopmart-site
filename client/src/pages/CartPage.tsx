@@ -66,7 +66,7 @@ const CartPage = () => {
 
       <div className='w-full flex flex-wrap gap-2 mx-auto'>
 
-        <div className='lg:w-[1125px] md:w-full sm:w-full space-y-4 max-[640px]:w-full'>
+        <div className='lg:w-281.25 md:w-full sm:w-full space-y-4 max-[640px]:w-full'>
 
           {cart.map((product) => (
 

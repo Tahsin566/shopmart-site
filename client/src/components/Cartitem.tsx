@@ -12,7 +12,7 @@ const Cartitem = ({product}:CartItemProp) => {
     <>
         <div className='flex gap-3 flex-wrap items-center w-full bg-gray-800 rounded-md p-1 flex-1'>
           
-                <img src={product.image} alt="" className='h-[160px] w-[210px] p-1 aspect-square rounded-md max-[456px]:w-full  object-cover bg-white' style={{ objectPosition: product.category === "T-Shirts" || product.category === "Jackets" ? '50% 38%' : '50% 55%' }} />
+                <img src={product.image} alt="" className='h-40 w-52.5 p-1 aspect-square rounded-md max-[456px]:w-full  object-cover bg-white' style={{ objectPosition: product.category === "T-Shirts" || product.category === "Jackets" ? '50% 38%' : '50% 55%' }} />
 
                 <div className='h-full flex flex-col justify-between py-4 space-y-3 flex-[0.5]'>
                   <h2>{product.name}</h2>

@@ -1,4 +1,4 @@
-import express, { Application, RequestHandler } from 'express'
+import express from 'express'
 import { Checkout, MakeOrder } from '../controllers/payment.controller'
 import { protectedRoute } from '../middlewares/auth.middleware'
 

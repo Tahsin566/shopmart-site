@@ -57,7 +57,7 @@ const AddProductTab = () => {
                 </select>
               </div>
 
-              <div className='flex bg-gray-700 items-center p-2 gap-2 rounded-md my-2 w-[200px] justify-center' >
+              <div className='flex bg-gray-700 items-center p-2 gap-2 rounded-md my-2 w-50 justify-center' >
 
                 <input type="file" className='sr-only' accept='image/*' id='image' />
                 <Upload size={20} />

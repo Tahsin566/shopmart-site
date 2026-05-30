@@ -14,7 +14,7 @@ const HomePage = () => {
       >
         <div className='w-full flex flex-wrap justify-center items-center'>
 
-          <div className='flex flex-col w-[900px]'>
+          <div className='flex flex-col w-225'>
 
           <h2 className='text-5xl text-center font-bold'>Explore our categories</h2>
           <p className='text-xl text-center my-2'>Discover the latest trends in eco-friendly fashion</p>

@@ -1,6 +1,4 @@
 {
-  "files": ["server/index.d.ts","./server/middlewares/auth.middleware.ts","./server/controllers/cart.controller.ts","./server/controllers/auth.controller.ts","./server/controllers/payment.controller.ts"],
-  "include": ["/server/*"],
   "compilerOptions": {
     // "typeRoots": ["server/index.d.tsd.ts"],
     /* Visit https://aka.ms/tsconfig to read more about this file */
