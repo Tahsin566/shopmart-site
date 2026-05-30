@@ -9,7 +9,7 @@ const CategoryPage = () => {
 
   const {category} = useParams()
   const {products,loading,fetchProductsbyCategory} = useProductStore()
-  const itemcategory = category?.charAt(0).toUpperCase().concat(category.slice(1))
+  const itemcategory = category?.charAt(0).toUpperCase().concat(category.slice(1,-1))
 
   useEffect(()=>{
     fetchProductsbyCategory(itemcategory as string)

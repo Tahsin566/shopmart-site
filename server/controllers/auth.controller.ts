@@ -42,6 +42,7 @@ export const signin = async (req: Request, res: Response) => {
 
     try {
         const user = await User.findOne({ email })
+
         if (!user) {
             return res.status(400).json({ error: 'User does not exist' })
         }
@@ -52,7 +53,10 @@ export const signin = async (req: Request, res: Response) => {
 
             return res.cookie("token", token, { sameSite: "none", secure: true, maxAge: 7 * 24 * 60 * 60 * 1000 }).status(200).json({ message: 'successfully signed in', userinfo: { username: user.username, email: user.email,role:user.role } })
         }
-        
+        if(!user || !await bcrypt.compare(password, user.password)){
+            return res.status(400).json({ error: 'invalid email or password' })
+        }
+
     } catch (error) {
         if (error instanceof Error) {
             res.status(500).json({ error: 'An error occurred' })
@@ -71,7 +75,7 @@ export const signout = async (req: Request, res: Response) => {
         }
 
         try {
-            const decode = await jwt.verify(token,jwt_token_secret) as JwtPayload
+            await jwt.verify(token,jwt_token_secret) as JwtPayload
             res.status(200).json({ message: 'Successfully logged out' })
         } catch (error) {
             if(error instanceof Error){
