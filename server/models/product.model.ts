@@ -2,7 +2,7 @@ import mongoose, { InferSchemaType } from "mongoose";
 
 
 const ProductSchema = new mongoose.Schema({
-    
+
     name:{
         type:String,
         required:[true,'Name is required'],
@@ -18,7 +18,7 @@ const ProductSchema = new mongoose.Schema({
     },
     image:{
         type:String,
-        required:[true,'Image is required']
+        default:'no-image.png'
     },
     category:{
         type:String,
@@ -27,8 +27,12 @@ const ProductSchema = new mongoose.Schema({
     isFeatured:{
         type:Boolean,
         default:false
+    },
+    date_of_entry: {
+        type: Date,
+        default: Date.now()
     }
-})
+},{timestamps:true})
 
 export type ProductModelType = InferSchemaType<typeof ProductSchema>
 

@@ -11,6 +11,7 @@ import { ProductRouter } from "../routes/product.route";
 import { PaymentRouter } from "../routes/payment.route";
 import Stripe from 'stripe'
 import {mongo_url,mongo_url_dev, stripe_secret_key} from '../config/configEnv'
+import { MongoConnect } from "../config/db";
 
 const app = express()
 dotenv.config()
@@ -18,7 +19,8 @@ dotenv.config()
 app.use(express.json())
 app.use(CookieParser())
 app.use(cors({
-    credentials:true
+    credentials:true,
+    // origin : 'http://localhost:5173'
 }))
 
 export const stripe = new Stripe(stripe_secret_key)
@@ -29,25 +31,12 @@ app.use(express.static(path.join(__dirname,'../../client/dist')))
 console.log(path.join(__dirname,'../../client/dist'))
 
 
-const connect = async () => {
-    try {
-        const conn = await mongoose.connect(process.env.MODE === "production" ? mongo_url_dev:mongo_url)
-        
-        if (conn) {
-            console.log("Connected")
-        }
-    } catch (error) {
-        console.log("Not connected")
-        process.exit(1)
-    }
-}
 
 
-
-app.use('/auth',Authrouter)
-app.use('/cart',CartRouter)
-app.use('/products',ProductRouter)
-app.use('/payment',PaymentRouter)
+app.use('/api/auth',Authrouter)
+app.use('/api/cart',CartRouter)
+app.use('/api/product',ProductRouter)
+app.use('/api/payment',PaymentRouter)
 
 
 
@@ -60,6 +49,6 @@ app.get('/*',(req,res)=>{
 app.listen(4000,async()=>{
     console.log('Server started at port 4000')
     console.log('waiting')
-    await connect()
+    await MongoConnect()
     
 })
