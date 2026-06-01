@@ -1,4 +1,4 @@
-// const endpont = 'https://shopmart-site.onrender.com'
-const endpont = 'http://localhost:4000/api'
+const endpont = 'https://shopmart-site.onrender.com/api'
+// const endpont = 'http://localhost:4000/api'
 
 export { endpont }
