@@ -43,7 +43,7 @@ export const Checkout = async(req:Request<{},{}>,res:Response)=>{
             success_url:`${endpoint}/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url:`${endpoint}/cancel`,
             metadata:{
-                userId:JSON.stringify(req.user._id),
+                userId:JSON.stringify(req.user?._id),
                 products:JSON.stringify(
                     cart.map(c => ({
                         id:c._id,

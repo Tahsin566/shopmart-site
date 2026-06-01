@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Product } from "../models/product.model";
-import { MongooseType } from "../server-side-types/mongooseType";
 import { Types } from "mongoose";
+import { User, UserModelType } from "../models/user.model";
 
     
 export const addToCart = async (req: Request, res: Response) => {
@@ -91,13 +91,12 @@ export const removeFromCart = async(req: Request, res: Response)=>{
     try {
 
         const { productId }:{productId:Types.ObjectId} = req.body
-        const { user } = req as unknown as {user:{cartItems:{id:Types.ObjectId}[]}}
+        const { user } = req
         if(!user){
             return res.status(400).json({})
         } 
 
-        user.cartItems = user.cartItems.filter((item)=> item.id !== productId)
-        await (user as MongooseType)?.save()
+        await User.updateOne({ _id: user._id }, { $pull: { cartItems: { id: productId } } })
 
         res.status(200).json({message:'item removed from cart',cart:user.cartItems})
 
