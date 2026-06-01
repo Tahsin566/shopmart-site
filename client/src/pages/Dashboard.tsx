@@ -39,7 +39,7 @@ const Dashboard = () => {
 
                 {alltabs.map((tab)=>(
 
-              <button onClick={()=>settabs(tab.id)} key={tab.id} className={`flex items-center gap-2 ${tabs == tab.id ? ' bg-blue-700':'bg-gray-700'}  px-4 py-2 rounded-md cursor-pointer transition-all`}>
+              <button onClick={()=>settabs(tab.id)} key={tab.id} className={`flex items-center gap-2 ${tabs == tab.id ? ' bg-blue-700':'bg-gray-700'}  px-4 py-2 rounded-md cursor-pointer transition-all active:scale-95 `}>
                   <tab.icon size={18}/>
                   <h2>{tab.name}</h2>
                 </button>

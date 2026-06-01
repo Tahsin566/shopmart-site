@@ -6,15 +6,17 @@ import { ProductType } from '../types/productTypes'
 
 
 
-const CategoryItems = ({product,product:{name,image,price,category}}:{product:ProductType}) => {
+const CategoryItems = ({product,product:{name,image,price}}:{product:ProductType}) => {
 
     const {addtocart} = useCartStore()
     const { user } = useUserStore()
 
     return (
         <>
-            <div className='w-54 overflow-hidden space-y-2'>
-                <img src={image} alt="" className={`${category === "Shoes" || category === "Glasses" ? ' object-contain' : ' object-cover'} mb-1  aspect-square w-full bg-white p-[0.5px] rounded-md`} />
+            <div className='w-70 overflow-hidden space-y-2 '>
+                <div className='w-full min-h-80 flex items-end  bg-white rounded-md' >
+                <img src={image} alt="" className={` p-[0.5px] rounded-md`} />
+                </div>
                 <div>{name}</div>
                 <div>{price} BDT</div>
                 <button onClick={()=>{

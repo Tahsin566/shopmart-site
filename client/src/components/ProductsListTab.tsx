@@ -1,14 +1,84 @@
 import { motion } from 'framer-motion'
-import {  Star } from 'lucide-react';
-import { useProductStore } from '../store/useProductStore';
+import { useEffect, useState } from 'react'
+import { useProductStore } from '../store/useProductStore'
+import { Edit, Star, Trash } from 'lucide-react'
+import { ProductsType } from '../types/productTypes'
+
+
 
 
 
 const ProductsListTab = () => {
 
-  const {products} = useProductStore()
+  const { products, fetchAllProducts, deleteProduct } = useProductStore()
+
+  const [open, setOpen] = useState(false)
+  const [productId, setProductId] = useState('')
+
+
+
+  useEffect(() => {
+    fetchAllProducts()
+  }, [fetchAllProducts])
+
+  const Modal = ({product}:{product:ProductsType}) => {
 
   
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className=' mx-auto bg-gray-900'
+      >
+        <div className='flex flex-col gap-2 h-32 w-52 rounded-md justify-center p-2 mx-auto'>
+
+          <img src={product?.image || ''} alt="product" className='h-40 w-52.5 p-1 aspect-square rounded-md max-[456px]:w-full  object-cover bg-white' />
+
+          <h1>Are you sure you intend to delete the product : {product?.name || ''} ? </h1>
+          <div className='flex justify-between'>
+            <button className='bg-red-600 p-2 rounded-md' onClick={async() => {
+              await deleteProduct(productId)
+              setOpen(false)
+            }}>Confirm</button>
+            <button className='bg-gray-600 p-2 rounded-md' onClick={() => setOpen(false)}>No</button>
+          </div>
+        </div>
+      </motion.div>
+    )
+  }
+
+
+  // if (open) {
+  //   return <motion.div
+  //     initial={{ opacity: 0, y: 20 }}
+  //     animate={{ opacity: 1, y: 0 }}
+  //     transition={{ duration: 0.5 }}>
+  //     <div className='flex flex-col gap-2 h-32 w-52 border rounded-md justify-center p-2 mx-auto'>
+
+  //       <h1>Are you sure ? </h1>
+
+
+
+  //       <div className='flex justify-between'>
+
+  //         <button className='bg-red-600 p-2 rounded-md' onClick={async () => {
+  //           await deleteProduct(productId)
+  //           setOpen(false)
+  //         }}>Confirm</button>
+
+  //         <button className='bg-gray-600 p-2 rounded-md' onClick={() => setOpen(false)}>No</button>
+  //       </div>
+
+  //     </div>
+  //   </motion.div>
+  // }
+
+  if(open){
+    return <div className='mx-auto w-54'>
+      <Modal product={products.find(product => product._id === productId)!}/>
+    </div>
+  }
 
   return (
     <>
@@ -17,54 +87,38 @@ const ProductsListTab = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-          <div className='flex justify-around bg-gray-600 px-4 py-2 rounded-t-lg'>
-          <div className='flex gap-2'>
-            <div className=' '>PRODUCTS</div>
-            <div className=' '></div>
-          </div>
-            <div className=''>PRICE</div>
-            {/* <div className='w-10 '>CATEGORY</div> */}
-            <div className=' '>CATEGORY</div>
-            <div className=' '>ISFEATURED</div>
-            <div className=' '>ACTIONS</div>
-            </div>
 
+        <div className=' grid gap-2'>
 
-        <div className='w-full bg-gray-800 px-4 py-2 rounded-b-lg'>
+          {products.map((product, _i) => (
 
-          {/* <div className='flex justify-between bg-orange-600'>
-          
-            
-          </div> */}
-          
-          {
-            products.map((product:any) => (
-              <>
-                <div className='flex justify-around space-y-2 items-center'>
-                  <div className='flex gap-2 items-center'>
-                  <img src={product.image} className='w-8 h-8 rounded-full bg-white' alt="" />
-                  <div className='w-40 '>{product.name}</div>
-                  </div>
-                  <div className='w-10'>${product.price}</div>
-                  
-                  <div className='w-40'>{product.category}</div>
+            <div className='relative grid grid-cols-1 mx-auto  md:grid-cols-2 lg:grid-cols-3 md:flex-wrap-reverse rounded-md  bg-gray-800 p-2 justify-between gap-4 items-center'>
+              <div>
+                <img src={product.image} alt="hello" className='h-32 border border-gray-600 rounded-md bg-white w-50 object-contain' />
+              </div>
 
-                  <button className=' cursor-pointer' onClick={() => {}}>
-                    <div className='w-20'>
-                    <Star className={`${product.isFeatured === true ? 'bg-orange-600' : 'bg-gray-700'} rounded-full`} />
-                    </div>
-                  </button>
-                  <button className=' cursor-pointer' onClick={()=>{
-                    // const pid = products.filter((fproduct)=>fproduct.id !== product.id)
-                    // setproducts(pid)
-                  }}>
-                    <div className='w-10'><product.actions  size={18} color='rgb(255,120,0)'/></div>
-                  </button>
+              <div className=''>
+                <h1>{product.name}</h1>
+                <p>{product.price}</p>
+                <div>{product.description}</div>
+              </div>
+
+              <div className='space-y-2 w-20 ml-auto'>
+                <Star />
+                <button><Edit /></button>
+                <div>
+                  <button onClick={() => {
+                    setProductId(product._id)
+                    setOpen(true)
+                  }}><Trash /></button>
                 </div>
-              </>
-            ))
-          }
+              </div>
+              
+            </div>
+          ))}
+
         </div>
+
       </motion.div>
 
     </>

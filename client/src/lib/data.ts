@@ -19,8 +19,8 @@ export let arrproducts:Productype[] = [
   { id: 4, category: "T-Shirt", name: "Black T-Shirt", price: 15, image:'https://img.freepik.com/free-photo/blue-t-shirt_23-2147730486.jpg?t=st=1743229161~exp=1743232761~hmac=6e225a80bd27ab133fdb018cd2bbaef32b8e940634fb194fc5bf7a686f98861b&w=1380', quantity: 1, isFeatured: false, actions: Trash },
   { id: 5, category: "Jean", name: "Relaxed Fit Jeans", price: 60, image:'/freepik__background__49539-jeans.png', quantity: 1, isFeatured: true, actions: Trash },
   { id: 6, category: "Jean", name: "Slim Fit Jeans", price: 50, image:'https://res.cloudinary.com/dkmdyo7bm/image/upload/v1743576173/freepik__adjust__26670-jeans_sisa2f.png', quantity: 1, isFeatured: false, actions: Trash },
-  { id: 7, category: "Glasse", name: "Aviator Sunglasses", price: 90, image:'/freepik__background__94523-glasses.png', quantity: 1, isFeatured: true, actions: Trash },
-  { id: 8, category: "Glasse", name: "Round Frame Glasses", price: 70, image:'https://img.freepik.com/free-photo/eyeglasses-wear_1203-2605.jpg?t=st=1743240154~exp=1743243754~hmac=2a374d91d6486e7a6991c9063caee73f601c381b96e8d938560a0017783c7ede&w=1380', quantity: 1, isFeatured: false, actions: Trash },
+  { id: 7, category: "Glass", name: "Aviator Sunglasses", price: 90, image:'/freepik__background__94523-glasses.png', quantity: 1, isFeatured: true, actions: Trash },
+  { id: 8, category: "Glass", name: "Round Frame Glasses", price: 70, image:'https://img.freepik.com/free-photo/eyeglasses-wear_1203-2605.jpg?t=st=1743240154~exp=1743243754~hmac=2a374d91d6486e7a6991c9063caee73f601c381b96e8d938560a0017783c7ede&w=1380', quantity: 1, isFeatured: false, actions: Trash },
   { id: 9, category: "Suit", name: "Black Suit", price: 300, image:'https://img.freepik.com/free-vector/mans-suit-realistic-composition-with-smart-costume-with-white-shirt-tie-jacket_1284-54345.jpg?uid=R193768589&ga=GA1.1.1351105179.1743226811&semt=ais_hybrid', quantity: 1, isFeatured: true, actions: Trash },
   { id: 10, category: "Suit", name: "Business Suit", price: 400, image:'https://img.freepik.com/free-psd/realistic-suit-illustration_23-2151236757.jpg?t=st=1743237034~exp=1743240634~hmac=4ede954b815a203fd2fbae22edde95a41f7af8ca02b95c1d9bdb8bbe13c8f563&w=826', quantity: 1, isFeatured: false, actions: Trash },
   { id: 11, category: "Bag", name: "White Backpack", price: 150, image:'https://img.freepik.com/free-photo/desk-arrangement-with-blue-backpack_23-2149009604.jpg?uid=R193768589&ga=GA1.1.1351105179.1743226811&semt=ais_hybrid', quantity: 1, isFeatured: true, actions: Trash },
@@ -34,16 +34,16 @@ export let arrproducts:Productype[] = [
   export const categories = [
     { href: "/jeans", name: "Jeans", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQz8C-YcRV3-299Zamamx2iEvGW-eFh39syQ&s" },
 
-    { href: "/t-Shirts", name: "T-Shirts", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNnUPVkiFV3xVekeLywdDfSwFsvGe2oeCneA&s" },
+    { href: "/t-shirt", name: "T-Shirts", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNnUPVkiFV3xVekeLywdDfSwFsvGe2oeCneA&s" },
     
     { href: "/shoes", name: "Shoes", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIi-qU6G5dWWHZyLMK2fl1yEFyXNUkMRv1eQ&s" },
 
     { href: "/glasses", name: "Glasses", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1BFijMm-mgANxnK49hkvOZw_2KDYWHyyvAw&s" },
 
-    { href: "/jackets", name: "Jackets", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQfmYPGfq20eJiB__Ok4ba9PeW1ativw-spg&s" },
+    { href: "/jacket", name: "Jackets", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQfmYPGfq20eJiB__Ok4ba9PeW1ativw-spg&s" },
 
-    { href: "/suits", name: "Suits", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVD6Wmvf5Ly8LoBI6jYJ7cl0YlQ8TTqX403w&s" },
+    { href: "/suit", name: "Suits", imageUrl: "https://res.cloudinary.com/dkmdyo7bm/image/upload/v1780314798/matham315-fashion-1979136_1920_l76df7.jpg" },
 
-    { href: "/bags", name: "Bags", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTvteiLAXWSSo6l-e8Hv2PhzP3nhskFG0aoA&s" }
+    { href: "/bag", name: "Bags", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTvteiLAXWSSo6l-e8Hv2PhzP3nhskFG0aoA&s" }
 
   ];

@@ -2,8 +2,7 @@ import { ProductType } from "./productTypes"
 
 
 export type CartProp = {
-    _id: string,
-    id: number,
+    _id: string
     image: string
     name: string
     price: number
